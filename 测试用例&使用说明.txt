@@ -1,0 +1,75 @@
+注：
+①csv文件中每行中的每列之间的间隔是以“,”实现的
+②整个程序生成唯一的.csv文件：data.csv。所有操作在此文件上进行
+
+操作如下：
+①：输入insert录入数据，具体方式有两种：
+insert -csv [***.csv]
+insert -data [姓名,语文成绩,英语成绩,数学成绩]
+
+***************示例*********************
+//insert -csv
+insert -csv 111.csv	
+
+//insert -data
+//insert -data Name,Chinese,English,Math
+insert -data 姓名,语文,英语,数学
+insert -data zhang1,75,80,85
+insert -data zhang2,85,90,76
+insert -data zhang3,82,66,75
+insert -data li1,80,75,64
+insert -data li2,96,82,77
+insert -data li3,72,85,80
+insert -data zhou1,75,73
+insert -data zhou2,84,80,92
+insert -data zhou3,85,85,75
+
+
+②：输入query命令进行查询，有4种查询方式：
+科目最高分：query -top -[科目] data.csv
+科目最低分：query -lowest -[科目] data.csv
+科目平均分：query -average -[科目] data.csv
+排名：	   query -rank -[科目] data.csv
+其中，-total代表总成绩（三科成绩之和）
+***************示例*********************
+query -top -chinese data.csv
+query -top -english data.csv
+query -top -math data.csv
+query -top -total data.csv
+
+query -lowest -chinese data.csv
+query -lowest -english data.csv
+query -lowest -math data.csv
+query -lowest -total data.csv
+
+query -average -chinese data.csv
+query -average -english data.csv
+query -average -math data.csv
+query -average -total data.csv
+
+query -rank -chinese data.csv
+query -rank -english data.csv
+query -rank -math data.csv
+query -rank -total data.csv
+
+
+③：输入update命令进行对某个学生的某科成绩进行修改：
+update [姓名] [科目] [修改后的成绩]
+***************示例*********************
+update 张一 chinese 10
+update 张二 english 50
+update 张三 math 44
+
+
+④：输入output命令将data.csv文件输出为：
+.csv 文件（默认的）
+.html 文件
+.txt 文件
+
+output -csv 
+output -html
+output -txt
+
+⑤：输入show显示当前data.csv的数据
+
+
